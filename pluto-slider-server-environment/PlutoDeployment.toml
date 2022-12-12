@@ -2,7 +2,7 @@
 baked_state = false
 baked_notebookfile = false
 offer_binder = true
-slider_server_url="https://rad-cupcake-e23fb7.netlify.app/"
+slider_server_url="https://rad-cupcake-e23fb7.netlify.app/mriqc.html"
 enabled=true
 output_dir="www"
 
