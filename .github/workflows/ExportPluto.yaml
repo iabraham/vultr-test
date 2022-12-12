@@ -57,3 +57,11 @@ jobs:
                     # more parameters can go here
                   )'
 
+
+            - name: Deploy to gh-pages
+              uses: JamesIves/github-pages-deploy-action@releases/v4
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  branch: gh-pages
+                  folder: .
+                  single-commit: true
