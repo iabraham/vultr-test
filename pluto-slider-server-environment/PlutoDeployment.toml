@@ -1,0 +1,10 @@
+[Export]
+baked_state = false
+baked_notebookfile = false
+offer_binder = true
+slider_server_url="http://rad-cupcake-e23fb7.netlify.app/"
+
+
+[SliderServer]
+port = 80
+host = "0.0.0.0"
