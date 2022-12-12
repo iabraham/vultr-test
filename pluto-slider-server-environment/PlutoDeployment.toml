@@ -1,12 +1,12 @@
 [Export]
 baked_state = false
 baked_notebookfile = false
-offer_binder = true
-slider_server_url="https://rad-cupcake-e23fb7.netlify.app/mriqc.html"
-enabled=true
-output_dir="www"
-
+enabled = true
+create_index = true
+output_dir = "www"
+slider_server_url = "https://mriqc-demo.netlify.app"
+ignore_cache = [
+    "index.jl",
+]
 
 [SliderServer]
-port = 80
-host = "0.0.0.0"
