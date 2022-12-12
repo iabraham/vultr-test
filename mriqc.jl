@@ -26,7 +26,7 @@ md"""### Chose modality here"""
 
 # ╔═╡ 73ddc96d-edbb-40ce-9476-278a581ebdaa
 begin
-	folder = "/home/ubuntu/mriqcdata/"
+	folder = "mriqcdata/"
 	sites = ["UIUC", "WHASC", "NWU", "WASHU"]
 	dfs = Dict(site => CSV.read(folder*"$site/group_$modality.tsv", DataFrame) for site in sites)
 	md"""`Code to load data`"""
