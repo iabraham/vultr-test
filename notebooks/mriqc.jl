@@ -44,7 +44,7 @@ md"""`Code to add run & session info to DataFrame`"""
 end
 
 # ╔═╡ 32d3cfb1-b0d4-4ffc-b321-f5ea45e8428d
-md"""#### Choose which DF to visualize"""
+md"""#### Choose which site & session to visualize"""
 
 # ╔═╡ cffa0b16-60b6-4208-97a7-6a4c3b9e54b6
 begin
@@ -52,8 +52,8 @@ viewdfui = @bind viewdf Select(sites);
 sesfilterui = @bind sesfilter Select(
 	[(x -> (x.session=="ses-A" || x.session=="ses-01") ? true : false) => "ses-A", 
      (x -> (x.session=="ses-B" || x.session=="ses-02") ? true : false) => "ses-B",
-	 (x -> true) => "none"],
-	default=(x -> true) => "none"
+	 (x -> true) => "both"],
+	default=(x -> true) => "both"
 )
 	md"""`Setting up drop down boxes`"""
 end
@@ -65,15 +65,29 @@ Site: $(Child(viewdfui))	Session: $(Child(sesfilterui))
 """
 end
 
+# ╔═╡ e1818aa7-b59b-4712-8074-c69aa4d7be7d
+md"""
+**Note:** Not all sites and sessions have all modalities. For example UIUC does not have `T1w` in `ses-B`.  If the table below does not display; then try changing the options. 
+"""
+
 # ╔═╡ 0aa0c14d-5cd3-43f3-a26b-b39093b390a5
 filter(sesfilter, dfs[viewdf])
 
 # ╔═╡ e10286de-9509-4aa6-aefe-26c0a397144b
-md"""### Basic plots"""
+md"""### Basic plots
+
+- The diagonal show histograms of the relevant IQM
+- The lower half of the matrix shows pairwise relations ships
+- The upper half of plots are bi-parametric frequency plots
+
+"""
 
 # ╔═╡ d87f4cff-ea76-41df-8357-1e3334973225
 @df filter(sesfilter, dfs[viewdf]) corrplot(cols(2:5), grid=false, 
 	fillcolor=cgrad(),size=(700,500))
+
+# ╔═╡ 234c979c-fa7a-4778-a150-ac765893c3dd
+
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -1380,8 +1394,10 @@ version = "1.4.1+0"
 # ╟─32d3cfb1-b0d4-4ffc-b321-f5ea45e8428d
 # ╟─cffa0b16-60b6-4208-97a7-6a4c3b9e54b6
 # ╟─5621695b-79ed-483b-b889-f9887478dd0f
-# ╠═0aa0c14d-5cd3-43f3-a26b-b39093b390a5
+# ╟─e1818aa7-b59b-4712-8074-c69aa4d7be7d
+# ╟─0aa0c14d-5cd3-43f3-a26b-b39093b390a5
 # ╟─e10286de-9509-4aa6-aefe-26c0a397144b
 # ╟─d87f4cff-ea76-41df-8357-1e3334973225
+# ╟─234c979c-fa7a-4778-a150-ac765893c3dd
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
