@@ -4,10 +4,13 @@ baked_notebookfile = false
 enabled = true
 create_index = true
 output_dir = "www"
-slider_server_url = "https://mriqc-demo.netlify.app"
+slider_server_url = "http://45.63.65.124"
 ignore_cache = [
     "index.jl",
 ]
 
 
 [SliderServer]
+port = 80
+host = "0.0.0.0"
+
